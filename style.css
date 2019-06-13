@@ -1,0 +1,20 @@
+/* menu sandwich */
+
+.menu-button{width: 30px;height: 20px;display: block;position: relative;}
+.menu-button:hover{cursor: pointer;}
+.menu-button span{transition: all 1000ms ease;position: absolute;width: 100%;height: 2px;background-color: #fff;display: block;left: 0;border-radius: 10%;}
+.menu-button span:first-child::after{content: '';position: absolute;width: 100%;height: 2px;background-color: #fff;display: block;left: 0;top: 9px}
+.menu-button span:last-child{bottom: 0;}
+.menu-button span:nth-child(2){top: 9px;opacity: 0;background-color: transparent;}
+.menu-button span:nth-child(2)::after,
+.menu-button span:nth-child(2)::before{content: '';position: absolute;width: 100%;height: 2px;background-color: #fff;display: block;left: 0;}
+.menu-button span:nth-child(2)::after{}
+.menu-button.opened span:nth-child(2)::before{transform: rotate(-45deg)}
+.menu-button.opened span:nth-child(2)::after{transform: rotate(45deg)}
+.menu-button.opened span:nth-child(2){opacity: 1}
+.menu-button.opened span:first-child,
+.menu-button.opened span:last-child{opacity: 0}
+
+/* deixar elemento branco via css */
+
+filter: grayscale(100%) brightness(230%);
