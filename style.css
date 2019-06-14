@@ -18,3 +18,8 @@
 /* deixar elemento branco via css */
 
 filter: grayscale(100%) brightness(230%);
+
+/* scroll horizontal centralizado */
+
+ul{display: flex;justify-content: flex-start;flex-wrap: nowrap;width: 100%;oveflow: auto;scroll-snap-type: x mandatory;}
+ul li{scroll-snap-align: center;}
