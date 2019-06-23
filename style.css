@@ -23,3 +23,8 @@ filter: grayscale(100%) brightness(230%);
 
 ul{display: flex;justify-content: flex-start;flex-wrap: nowrap;width: 100%;overflow: auto;scroll-snap-type: x mandatory;}
 ul li{scroll-snap-align: center;}
+
+/* background fixo no scroll */ 
+
+body{background: url('images/background.jpg') 100% 100% no-repeat fixed;background-size: 100%;}
+
