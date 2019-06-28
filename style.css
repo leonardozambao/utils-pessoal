@@ -7,7 +7,6 @@
 .menu-button span:nth-child(2){top: 9px;opacity: 0;background-color: transparent;}
 .menu-button span:nth-child(2)::after,
 .menu-button span:nth-child(2)::before{content: '';position: absolute;width: 100%;height: 2px;background-color: #fff;display: block;left: 0;}
-.menu-button span:nth-child(2)::after{}
 .menu-button.opened span:nth-child(2)::before{transform: rotate(-45deg)}
 .menu-button.opened span:nth-child(2)::after{transform: rotate(45deg)}
 .menu-button.opened span:nth-child(2){opacity: 1}
@@ -16,7 +15,7 @@
 
 /* deixar elemento branco via css */
 
-filter: grayscale(100%) brightness(230%);
+.icone{filter: grayscale(100%) brightness(230%);}
 
 /* scroll horizontal centralizado */
 
@@ -25,5 +24,5 @@ ul li{scroll-snap-align: center;}
 
 /* background fixo no scroll */ 
 
-body{background: url('images/background.jpg') 100% 100% no-repeat fixed;background-size: 100%;}
+body{background: url('images/background.jpg') 100% 100% no-repeat fixed;background-size: cover;}
 
