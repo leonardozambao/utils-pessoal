@@ -9,7 +9,19 @@ $( window ).load(function() {
 $("#telefone").mask("(99) 9999-99999"); 
 $("#cpf").mask("000.000.000-00");
 $("#cnpj").mask("99.999.999/9999-99");
+// Mascara de CPF e CNPJ
+var CpfCnpjMaskBehavior = function (val) {
+    return val.replace(/\D/g, '').length <= 11 ? '000.000.000-009' : '00.000.000/0000-00';
+},
+    cpfCnpjpOptions = {
+        onKeyPress: function (val, e, field, options) {
+            field.mask(CpfCnpjMaskBehavior.apply({}, arguments), options);
+        }
+    };
 
+$(function () {
+    $(':input[name=docgestor]').mask(CpfCnpjMaskBehavior, cpfCnpjpOptions);
+})
 // efeito em elemento block
 
 $('#my-block').slideToggle('medium', function() {
