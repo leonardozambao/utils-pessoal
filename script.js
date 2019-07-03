@@ -23,33 +23,58 @@ $('form #cnpj').on('focus', function(){
         $('#cnpj').attr("disabled", true);}
 });
 
-// controlar classe no header com base no scroll da pagina
 
-$(window).scroll(function (e) {
-    if ($(window).width() > 768) {
-        var scroll = $(this).scrollTop();
-        divSelect(scroll);
+
+// adicionar classe na section conforme scroll da pagina
+
+function changeState(e, eClass) {
+    if ($(e).hasClass(eClass)) {
+        return false;
+    } else {
+        $('section').removeClass(eClass);
+        $(e).addClass(eClass);
     }
-});
+}
 
 var lastScrollTop = 0;
-function divSelect(scroll){
-    if (scroll > lastScrollTop){
+function divSelect(scroll) {
+    $('section:not(#obra)').each(function () {
+        var posDiv = $(this).offset().top;
+        var divHeight = $(this).innerHeight();
+        var divPosition = posDiv + divHeight;
+        var windowHeight = $(window).innerHeight();
+        var scrollPosition = scroll;
+
+        if (scrollPosition > posDiv) {
+            changeState($(this), 'state-one');
+        }
+        if (scrollPosition > posDiv - (windowHeight / 2) && scrollPosition < divPosition + (windowHeight / 2)) {
+            changeState($(this), 'state-two');
+        }
+        if (scrollPosition > posDiv - ((windowHeight / 2) + 200) && scrollPosition < divPosition - windowHeight) {
+            changeState($(this), 'state-three');
+        }
+    });
+
+    if (scroll > lastScrollTop) {
         //descendo scroll
-        if (scroll > $('header').innerHeight() - 160){
+        if (scroll > $('header').innerHeight()) {
             $('header').removeClass('show').addClass('no-top');
-        }else{
+        } else {
             $('header').addClass('show').removeClass('no-top');
         }
-    }
-    else{
+    } else {
         //subindo scroll
-        if (scroll > $('header').innerHeight()){
+        if (scroll > $('header').innerHeight()) {
             $('header').addClass('no-top');
-        }else{
+        } else {
             $('header').removeClass('no-top');
         }
-        $('header').addClass('show');
+        $('header').addClass('show')
     }
     lastScrollTop = scroll;
-}
+};
+$(window).scroll(function (e) {
+    var scroll = $(this).scrollTop();
+    divSelect(scroll);
+});
