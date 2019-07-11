@@ -1,2 +1,9 @@
 <!-- bloquear autocomplete no chrome -->
 <input type="password" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');this.select();" >
+
+<!-- imagens em vários tamanhos -->
+<picture class="image">
+    <source media="(min-width: 1920px)" data-srcset="images/pictures/high/banner_01.jpg">
+    <source media="(min-width: 640px)" data-srcset="images/pictures/banner_01.jpg">
+    <img data-src="images/pictures/small/banner_01.jpg" class="image-fixed parallax-simple reverse half-velocity lazyload">
+</picture>
