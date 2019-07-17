@@ -4,6 +4,42 @@
     --text-white: #fff;
 }
 .elemento{color: var(--text-red);}
+
+/* animações */
+
+@-webkit-keyframes jump {
+  0%{
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+  }
+  20%{
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+  }
+  40%{
+	-webkit-transform: translateY(-14px);
+	transform: translateY(-14px);
+  }
+  50%{
+	-webkit-transform: translateY(10px);
+	transform: translateY(10px);
+  } 
+  60%{
+	-webkit-transform: translateY(-5px);
+	transform: translateY(-5px);
+  }
+  80%{
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+  }
+  100%{
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+  }
+}
+
+.elemento{-webkit-animation: jump 1.5s ease 0s infinite normal ; animation: jump 3.5s ease 0s infinite normal;}
+
 /* menu sandwich */
 
 .menu-button{width: 30px;height: 20px;display: block;position: relative;}
