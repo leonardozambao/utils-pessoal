@@ -40,6 +40,10 @@
 
 .elemento{-webkit-animation: jump 1.5s ease 0s infinite normal ; animation: jump 3.5s ease 0s infinite normal;}
 
+/* girar no eixo vertical */
+
+.elemento{transform: rotate3d(100,1,0,180deg);}
+
 /* menu sandwich */
 
 .menu-button{width: 30px;height: 20px;display: block;position: relative;}

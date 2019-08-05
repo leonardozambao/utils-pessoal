@@ -35,7 +35,42 @@ $('form #cnpj').on('focus', function(){
         $('#cnpj').attr("disabled", true);}
 });
 
+// adicionar classe no menu conforme scroll
 
+function changeState(e, eClass) {
+    if ($(e).hasClass(eClass)) {
+        return false;
+    } else {
+        $('section').removeClass(eClass);
+        $(e).addClass(eClass);
+    }
+}
+
+var lastScrollTop = 0;
+function divSelect(scroll) {
+
+    if (scroll > lastScrollTop) {
+        //descendo scroll
+        if (scroll > $('header').innerHeight()) {
+            $('header').removeClass('show').addClass('no-top');
+        } else {
+            $('header').addClass('show').removeClass('no-top');
+        }
+    } else {
+        //subindo scroll
+        if (scroll > $('header').innerHeight()) {
+            $('header').addClass('no-top');
+        } else {
+            $('header').removeClass('no-top');
+        }
+        $('header').addClass('show')
+    }
+    lastScrollTop = scroll;
+};
+$(window).scroll(function (e) {
+    var scroll = $(this).scrollTop();
+    divSelect(scroll);
+});
 
 // adicionar classe na section conforme scroll da pagina
 
@@ -50,7 +85,7 @@ function changeState(e, eClass) {
 
 var lastScrollTop = 0;
 function divSelect(scroll) {
-    $('section:not(#obra)').each(function () {
+    $('section').each(function () {
         var posDiv = $(this).offset().top;
         var divHeight = $(this).innerHeight();
         var divPosition = posDiv + divHeight;
@@ -89,4 +124,23 @@ function divSelect(scroll) {
 $(window).scroll(function (e) {
     var scroll = $(this).scrollTop();
     divSelect(scroll);
+});
+
+// scroll horizontal
+$(document).ready(function () {
+    $('.recomendacoes .nav li').click(function () {
+        if (!$(this).hasClass('act')) {
+            $('.recomendacoes .nav li').removeClass('act');
+            $(this).addClass('act');
+
+            if ($(this).index() == 1) {
+                $('.recomendacoes .recomendacoes-ativos').css('transform', 'translateX(-100%)');
+                $('.recomendacoes .carteiras-recomendadas').css('transform', 'translateX(-100%)');
+            }
+            else {
+                $('.recomendacoes .carteiras-recomendadas').css('transform', 'translateX(0)');
+                $('.recomendacoes .recomendacoes-ativos').css('transform', 'translateX(0)');
+            }
+        }
+    })
 });
