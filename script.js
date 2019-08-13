@@ -144,3 +144,15 @@ $(document).ready(function () {
         }
     })
 });
+
+// trabalhando com index de elementos
+$(document).ready(function () {
+    $('.menu-vertical li').click(function () {
+        $('.menu-vertical li').removeClass('act');
+        $(this).addClass('act');
+        var position = ($(this).index()) * 1;
+        var div = $('.investimento > div')[position];
+        $('.investimento div').removeClass('act');
+        $(div).addClass('act');
+    })
+});
