@@ -156,3 +156,11 @@ $(document).ready(function () {
         $(div).addClass('act');
     })
 });
+
+
+//verificando se tem elemento vazio + usando each
+$('.header .submenu .box').each(function () {
+    if ($(this).is(':empty')) {
+        $(this).parent().parent().addClass('empty');
+    }
+})
