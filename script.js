@@ -164,3 +164,6 @@ $('.header .submenu .box').each(function () {
         $(this).parent().parent().addClass('empty');
     }
 })
+
+// pegando tamanho da tela 
+var width = screen.width;
