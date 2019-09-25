@@ -167,3 +167,54 @@ $('.header .submenu .box').each(function () {
 
 // pegando tamanho da tela 
 var width = screen.width;
+
+// verificando sistema operacional
+
+var OSNome = "";
+if (window.navigator.userAgent.indexOf("Windows NT 10.0") != -1) OSNome = "Windows 10";
+if (window.navigator.userAgent.indexOf("Windows NT 6.2") != -1) OSNome = "Windows 8";
+if (window.navigator.userAgent.indexOf("Windows NT 6.1") != -1) OSNome = "Windows 7";
+if (window.navigator.userAgent.indexOf("Windows NT 6.0") != -1) OSNome = "Windows Vista";
+if (window.navigator.userAgent.indexOf("Windows NT 5.1") != -1) OSNome = "Windows XP";
+if (window.navigator.userAgent.indexOf("Windows NT 5.0") != -1) OSNome = "Windows 2000";
+if (window.navigator.userAgent.indexOf("Mac") != -1) OSNome = "Mac/iOS";
+if (window.navigator.userAgent.indexOf("X11") != -1) OSNome = "UNIX";
+if (window.navigator.userAgent.indexOf("Linux") != -1) OSNome = "Linux";
+document.write('Seu Sistema Operacional: ' + OSNome);
+
+// browser update
+
+//<![CDATA[
+navigator.sayswho= (function(){
+    var ua= navigator.userAgent, tem,
+    M= ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+    if(/trident/i.test(M[1])){
+        tem=  /\brv[ :]+(\d+)/g.exec(ua) || [];
+        return 'IE '+(tem[1] || '');
+    }
+    if(M[1]=== 'Chrome'){
+        tem= ua.match(/\b(OPR|Edge)\/(\d+)/);
+        if(tem!= null) return tem.slice(1).join(' ').replace('OPR', 'Opera');
+    }
+    M= M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+    if((tem= ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
+		
+		M[0].trim();
+		M[1].trim();
+		
+		if(M[0]=="MSIE" && M[1]<="8")  {
+			window.location.replace('http://www.updateyourbrowser.net/pt');
+		}
+		
+		else if (M[0]=="Firefox" && M[1]<="30") {
+			window.location.replace('http://www.updateyourbrowser.net/pt');
+		}
+		
+		else if (M[0]=="Chrome" && M[1]<="45") {
+		}
+})();
+
+// scroll até elemento + calculo com pixels
+$([document.documentElement, document.body]).animate({
+    scrollTop: $(".timeline .active").offset().top - 300
+}, 1000);
