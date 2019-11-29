@@ -76,4 +76,8 @@ ul li{scroll-snap-align: center;}
 
 body{background: url('images/background.jpg') 100% 100% no-repeat fixed;background-size: cover;}
 
+/* triangulo via css */
+a::before{content: '';width: 0;height: 0;border: 7px solid transparent;border-left: solid #e30613 7px;display: inline-block;}
+
+
 
