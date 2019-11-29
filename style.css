@@ -44,6 +44,10 @@
 
 .elemento{-webkit-transform: rotate3d(100,1,0,180deg);transform: rotate3d(100,1,0,180deg);}
 
+/* girar no eixo horizontal */
+
+.elemento{-webkit-transform: rotate3d(0, 1, 0, 180deg);transform: rotate3d(0, 1, 0, 180deg);}
+
 /* menu sandwich */
 
 .menu-button{width: 30px;height: 20px;display: block;position: relative;}

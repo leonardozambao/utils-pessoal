@@ -180,7 +180,7 @@ if (window.navigator.userAgent.indexOf("Windows NT 5.0") != -1) OSNome = "Window
 if (window.navigator.userAgent.indexOf("Mac") != -1) OSNome = "Mac/iOS";
 if (window.navigator.userAgent.indexOf("X11") != -1) OSNome = "UNIX";
 if (window.navigator.userAgent.indexOf("Linux") != -1) OSNome = "Linux";
-document.write('Seu Sistema Operacional: ' + OSNome);
+console.log('Seu Sistema Operacional: ' + OSNome);
 
 // browser update
 
