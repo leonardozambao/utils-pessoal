@@ -218,3 +218,16 @@ navigator.sayswho= (function(){
 $([document.documentElement, document.body]).animate({
     scrollTop: $(".timeline .active").offset().top - 300
 }, 1000);
+
+//descobrir qual elemento está gerando scroll horizontal na pagina
+
+var docWidth = document.documentElement.offsetWidth;
+
+[].forEach.call(
+  document.querySelectorAll('*'),
+  function(el) {
+    if (el.offsetWidth > docWidth) {
+      console.log(el);
+    }
+  }
+);
