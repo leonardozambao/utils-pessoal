@@ -79,5 +79,6 @@ body{background: url('images/background.jpg') 100% 100% no-repeat fixed;backgrou
 /* triangulo via css */
 a::before{content: '';width: 0;height: 0;border: 7px solid transparent;border-left: solid #e30613 7px;display: inline-block;}
 
+/* exemplo de grid */
 
-
+.grid{display: grid;grid-template-columns: repeat(3, calc(33.3% - 15px));justify-content: space-between;}
