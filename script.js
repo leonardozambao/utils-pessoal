@@ -231,3 +231,9 @@ var docWidth = document.documentElement.offsetWidth;
     }
   }
 );
+
+//função para voltar ao topo
+function returnTop(){
+    $('html, body').animate({scrollTop : 0},800);
+    return false;
+}
