@@ -11,6 +11,8 @@ $size = count($queryPosts->posts);
 <?php the_title( '<h3>', '</h3>' ); ?>
 <h3><?php echo get_the_title() ?></h3>
 
+//pegar ultima string
+array_pop(explode('/', $string));
 
 
 
