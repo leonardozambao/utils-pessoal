@@ -237,3 +237,18 @@ function returnTop(){
     $('html, body').animate({scrollTop : 0},800);
     return false;
 }
+
+//iframe do youtube proporcional
+ jQuery(document).ready(function () {
+
+            if (window.innerWidth < 1067) {
+                window.onresize = resizeIframeYoutube;
+                resizeIframeYoutube();
+            }
+
+            function resizeIframeYoutube () {
+                valorAltura = parseInt(jQuery('.liveYoutube iframe').innerWidth() * 0.56);
+                jQuery('.liveYoutube iframe').css('height', String(valorAltura) + 'px')
+            }
+
+        });
