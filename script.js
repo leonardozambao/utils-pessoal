@@ -252,3 +252,71 @@ function returnTop(){
             }
 
         });
+
+function accordeon(el) {
+            if ($(el).parent().hasClass('open')) {
+                $(el).next('section').slideToggle();
+                $(el).parent().toggleClass('open');
+            } else {
+                $('.accordeon section').slideUp();
+                $('.accordeon article').removeClass('open');
+                $(el).next('section').slideToggle();
+                $(el).parent().toggleClass('open');
+                scrollToElement(el, 400, '', 15);
+            }
+        }
+/* html 
+<div class="accordeon">
+	<article>
+	    <header class="flex-between flex-align-center" title="Expandir/Recolher" onclick="accordeon(this);">
+		<h3>Como funciona?</h3>
+		<span class="arrow"></span>
+	    </header>
+	    <section class="hide">
+		<p>
+		    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto fugiat soluta culpa tempora fugit vitae eligendi, est quo, assumenda facere doloribus porro eaque quos officia nulla maiores voluptatum vel. Modi?
+		</p>
+	    </section>
+	</article>
+</div> 
+//css
+.accordeon{
+        h3{
+            font-size: 2.8rem;
+            color: #343A40;
+            font-weight: normal;
+        }
+        .arrow{
+            display: block;
+            width: 13px;
+            height: 13px;
+            border: solid 2px #000;
+            border-bottom: 0;
+            border-left: 0;
+            transition: all 400ms ease;
+            transform: rotate(135deg);
+            top: -3px
+        }
+        header{
+            padding: 3.2rem 2.9rem;
+            background-color: #fff;
+            cursor: pointer;
+            border-bottom: solid 1px #F2F4EF;
+        }
+        section{
+            background-color: #F9FAF7;
+            padding: 4.8rem 2.9rem;
+            p{
+                @extend %font2;
+            }
+        }
+        .open{
+            .arrow{
+                transform: rotate(-45deg);
+                top: 1px;
+            }
+        }
+    }
+    
+    */
+	   
