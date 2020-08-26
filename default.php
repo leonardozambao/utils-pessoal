@@ -97,6 +97,14 @@ function wp_get_pages($args = '') {
    
 	return $pages;
   }
+	
+//adicionar classe ao submenu padrão
+function new_submenu_class($menu) {    
+    $menu = preg_replace('/ class="sub-menu"/','/ class="sub-menu animated fadeInDown" /',$menu);        
+    return $menu;      
+}
+
+add_filter('wp_nav_menu','new_submenu_class'); 
   
 
 
