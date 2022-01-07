@@ -4,6 +4,24 @@ $( document ).ready(function() {
 $( window ).load(function() {
     
 });
+//adicionar classe no menu de acordo com o scroll da pagina
+var links = $('.menu a');
+$(window).scroll(function () {
+	var topScroll = $(window).scrollTop();
+	links.each(function(){
+		var href = $(this).attr('href');
+		var el = $(href);
+		var posSection = el.offset().top;
+		var hSection = el.height();
+
+		if(posSection <= topScroll && (posSection + hSection) > topScroll){
+			links.removeClass('act');
+			$(this).addClass('act');
+		} else {
+			$(this).removeClass('act');
+		}
+	})
+})
 
 // mascaras
 $("#telefone").mask("(99) 9999-99999"); 
