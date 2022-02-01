@@ -1,4 +1,12 @@
 <?php 
+//debugar no console
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
 
 //contar post do array
 $size = count($queryPosts->posts);
